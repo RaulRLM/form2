@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>F o r m u l a r i</title>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+
+        }
+        body {
+            background: url('bg.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+            
+        }
+
+        h1,h3,h5 {
+            color: rgb(255, 225, 0);
+            text-align: center;
+        }
+       
+
+
+        .divBoton {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .divBoton button {
+            background-color: red;
+            border-radius: 5px;
+            padding: 10px;
+            margin-left: 10px;
+        }
+
+        .form {
+            background-color: transparent; /* Cambiamos el fondo a transparente */
+            backdrop-filter: blur(15px);
+            width: 40%;
+            margin: auto;
+            border-radius: 10px;
+            border: 3px solid rgba(255, 255, 255, .5);            padding: 15px;
+            font-weight: bold;
+            color: rgb(255, 225, 0);
+
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-container input {
+            margin-bottom: 5px; /* Espacio entre el input y el mensaje de error */
+        }
+
+        .error {
+            color: rgb(207, 29, 29);
+            margin-top: 5px; /* Espacio entre el input y el mensaje de error */
+            display: none; /* Inicialmente oculto */
+            font-weight: bold; /* Agregamos negrita */
+
+        }
+
+        .radio-container {
+            display: flex;
+            align-items: center; /* Alinea verticalmente los elementos en el contenedor */
+        }
+
+        .radio-container label {
+            margin-right: 20px; /* Espacio entre los botones de opción */
+        }
+
+        .radio-buttons {
+            margin-left: 10px; /* Espacio entre el texto y los botones de opción */
+        }
+        .texte1 {
+            margin-top: 100px;
+        }
+
+        .icon {
+            font-size: 30px;
+            cursor: pointer;
+            transition: transform 0.2s, font-size 0.2s; /* Agregamos la transición de font-size */
+        }
+
+       
+      /* Estilos para ocultar los input de tipo radio */
+input[type="radio"].satisfaction-input {
+    display: none;
+}
+
+/* Estilos para los iconos */
+.satisfaction-input:checked + .icon {
+    font-size: 60px;
+    color: blue;
+}
+.satisfaction-icons {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    margin-top: 20px; /* Espacio superior */
+}
+label:nth-of-type(5) {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+
+}
+.iconsdiv {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+.calle {
+    height: 20px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+/* Ocultar el texto predeterminado */
+input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+}
+input[type="file"]::before {
+    content: 'Seleccionar archivo'; /* Texto personalizado */
+    display: inline-block;
+    background: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover::before {
+    background: #45a049; /* Cambia el color de fondo al pasar el mouse */
+}
+.nombreApellido {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nombreApellido > div {
+        display: inline-block;
+    }
+
+    .input-container input {
+        margin-bottom: 5px; /* Espacio entre el input y el mensaje de error */
+    }
+
+/*colores*/
+    .color-range {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="range"] {
+            width: 80%;
+            margin: 10px 0;
+        }
+
+        #color-preview {
+            border-radius: 15px;
+            border: 3px solid #652828;
+            padding: 20px;
+
+        }
+
+
+        /**/
+
+        #sexo {
+    width: 90%; /* Establece el ancho del label al 90% */
+    margin: auto; /* Centra horizontalmente el label */
+    text-align: center; /* Centra el texto dentro del label */
+}
+
+#sexo .radio-container {
+    display: flex; /* Usa flexbox para alinear verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-wrap: wrap; /* Envuelve los elementos si son más anchos que el contenedor */
+}
+
+
+
+        @media (max-width: 1308px) {
+    .calle {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .calle label,
+    .calle input,
+    .calle select {
+        width: 100%;
+        margin-bottom: 10px; /* Ajusta el espacio entre los elementos */
+    }
+
+    .calle {
+        margin-top: 10%;
+        
+    }
+    #opció > .radio-container:nth-child(1) {
+    /* Estilos que deseas aplicar al segundo .radio-container */
+    margin-top: 12%;
+}
+
+
+}
+@media (max-width: 1363px) {
+    .nombreApellido {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centra verticalmente los elementos */
+        align-items: center; /* Centra horizontalmente los elementos */
+    }
+
+    .nombreApellido > div {
+        width: 100%; /* Asegura que cada div ocupe todo el ancho */
+        margin-bottom: 10px; /* Ajustar el espacio entre los campos */
+        justify-content: center; /* Centra verticalmente los elementos */
+        align-items: center; /* Centra horizontalmente los elementos */
+    }
+}
+@media (max-width: 1125px) {
+    #sexo .radio-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    #sexo .texte3 {
+        margin-bottom: 5px; /* Espacio entre el texto y los radio buttons */
+    }
+
+    #sexo .radio-buttons label {
+        margin-left: 20px; /* Espacio horizontal entre los botones de radio */
+        margin-bottom: 20px
+    }
+    
+}
+.nombreApellido > div input[type="text"] {
+    width: 90%; /* Hacer que los inputs ocupen el 90% del ancho */
+}
+
+input {
+    margin-top: 5px;
+}
+
+    </style>
+</head>
+<body>
+<h1> F o r m u l a r i </h1>
+<div class="form">
+    <form novalidate onsubmit="return validarForm();" id="color-preview">
+
+        <H3> REGISTRE D'USUARIS</H3>
+        <div class="nombreApellido">
+            <div>
+                <label id="nom">
+                <texte class="texte1">* Nom</texte>
+                <input type="text" name="nombre" placeholder="Nom" >
+                    <div class="input-container">
+                        <error class="error" id="errorNombre"></error> <!-- Movido debajo del input -->
+                    </div>
+                </label>
+            </div>
+        
+    <div>
+        <label id="apellidos">
+            <texte class="texte1">* Cognoms</texte>
+            <input type="text" name="apellidos" placeholder="Cognoms" >
+                <div class="input-container">
+                    <error class="error" id="errorApellidos"></error> <!-- Movido debajo del input -->
+                </div>
+        </label>
+    </div> 
+    
+
+    </div>
+    
+    <br>
+        <label id="sexo">
+            <div class="radio-container">
+                <texte class="texte3">* Sexe:</texte>
+                <div class="radio-buttons">
+                    <label><input type="radio" name="sexo" value="Home"> Home</label>
+                    <label><input type="radio" name="sexo" value="Dona"> Dona</label>
+                    <label><input type="radio" name="sexo" value="Altres"> Altres</label>
+                </div>
+            </div>
+            <br> <!-- Agregamos un salto de línea -->
+            <error class="error" id="errorSexo"></error> <!-- Mensaje de error debajo de los botones de opción -->
+        </label>
+
+        
+<div class="calle">
+    <!-- si el campo selectet tiene una longitud que es 0  hay que  asegurarlo-->
+        <label for="tipo_via">Via:</label>
+<select id="tipo_via" name="tipo_via">
+    <option value="">Trii una via</option>
+    <option value="calle">Calle</option>
+<option value="avenida">Avenida</option>
+<option value="camino">Camino</option>
+<option value="plaza">Plaza</option>
+<option value="paseo">Paseo</option>
+<option value="bulevar">Bulevar</option>
+<option value="carretera">Carretera</option>
+<option value="callejón">Callejón</option>
+<option value="rambla">Rambla</option>
+<option value="vía">Vía</option>
+<option value="vial">Vial</option>
+<option value="travesía">Travesía</option>
+<option value="pasaje">Pasaje</option>
+<option value="carrer">Carrer </option>
+<option value="rúa">Rúa</option>
+<option value="alameda">Alameda</option>
+<option value="paseo marítimo">Paseo Marítimo</option>
+<option value="cuesta">Cuesta</option>
+<option value="senda">Senda</option>
+<option value="ramal">Ramal</option>
+<option value="vía pública">Vía Pública</option>
+<option value="bajada">Bajada</option>
+<option value="subida">Subida</option>
+<option value="vereda">Vereda</option>
+
+    
+    <!-- Agrega más opciones según sea necesario -->
+</select>
+
+<label for="nombre_via"></label>
+<input type="text" id="nombre_via" name="nombre_via" placeholder="Nombre de la via">
+
+    <label for="codigo_postal"></label>
+    <input type="text" id="codigo_postal" name="codigo_postal" placeholder="Código Postal">
+
+</div>
+<br>
+<label id="opció">
+    <div class="radio-container">
+        <texte class="texte3">* Resident a les Illes Balears:</texte>
+        <div class="radio-buttons">
+            <label><input type="radio" name="opció" value="Resident"> Si</label>
+            <label><input type="radio" name="opció" value="No Resident"> No</label>
+        </div>
+    </div>
+    <br> <!-- Agregamos un salto de línea -->
+    <error class="error" id="errorRadio"></error> <!-- Mensaje de error debajo de los botones de opción -->
+</label>
+
+        <label id="mail">
+            <texte class="texte2">* Correu electrònic</texte>
+            <div class="input-container">
+                <input type="text" name="email" placeholder="Email">
+                <error class="error" id="errorMail"></error> <!-- Movido debajo del input -->
+            </div>
+        </label>
+
+        
+
+        <label id="fechaNacimiento">
+            <texte class="texte3">* Data de naixement:</texte>
+            <div class="input-container">
+                <input type="text" id="fechaNacimientoInput" name="fechaNacimiento" placeholder="(format AAAA-MM-DD)">
+                <error class="error" id="mensajeErrorFormato">El format ha de ser AAAA-MM-DD</error> 
+                <error class="error" id="mensajeErrorEdad">Has de ser major de 18 anys</error> 
+            </div>
+        </label>
+
+        <div>
+            <label for="imagen">Selecciona una imatge:</label>
+<input type="file" id="imagen" name="imagen" accept="image/*">
+<error class="error" id="errorFoto"></error> <!-- Mensaje de error para la foto -->
+
+
+        </div>
+        <label>
+    <div class="privacidad-container">
+        <br>
+        <input type="checkbox" name="politicasPrivacidad" required>
+        <texte>Acepto les polítiques d'en Ramon</texte>
+        <error class="error" id="errorPoliticas">Has d'aceptar les polítiqus d'en Ramon</error>
+        <!-- Mensaje de error para la política de privacidad -->
+    </div>
+</label>
+
+        
+
+        
+        <DIV class="iconsdiv">
+        <label>
+            <input type="radio" name="satisfaccion" value="1" class="satisfaction-input">
+            <span class="icon">&#128545;</span> 
+        </label>
+        <label>
+            <input type="radio" name="satisfaccion" value="2" class="satisfaction-input">
+            <span class="icon">&#128577;</span>
+        </label>
+        <label>
+            <input type="radio" name="satisfaccion" value="3" class="satisfaction-input">
+            <span class="icon">&#128528;</span> 
+        </label>
+        <label>
+            <input type="radio" name="satisfaccion" value="4" class="satisfaction-input"> 
+            <span class="icon">&#128578;</span>
+        </label>
+        <label>
+            <input type="radio" name="satisfaccion" value="5" class="satisfaction-input">
+            <span class="icon">&#128512;</span>
+        </label>
+    </DIV>
+
+    
+
+
+        <div class="divBoton">
+            <button type="reset">Neteja Formulari</button>
+            <button type="submit">Enviar</button>
+           <!-- <button type="button">Canceŀlar</button> -->
+        </div>
+
+        <p>No tens un compte? <a href="index.html">Registra't</a></p>
+
+
+        <h5>Modifica els colors borde del formulari</h5>
+    <div class="color-range">
+        <label for="color">Color del formulari:</label>
+        <input type="range" id="red" name="red" min="0" max="255" value="0" step="1">
+        <input type="range" id="green" name="green" min="0" max="255" value="0" step="1">
+        <input type="range" id="blue" name="blue" min="0" max="255" value="0" step="1">
+    </div>
+    </form>
+</div>
+<script>
+    /*
+    const marcar = () => {
+        let elements = document.querySelectorAll("div input");
+        for (let e = 0; e < elements.length; e++) elements[e].checked = true;
+    }*/
+
+    const validar = (selector, regular, errorMessageId) => {
+        let element = document.querySelector(selector + " input");
+        let message = document.getElementById(errorMessageId);
+        if (element.value.length === 0) {
+            message.textContent = "Introdueix el teu nom";
+            element.style.boxShadow = "0 0 5px red"; // Agregamos sombra roja
+            message.style.display = "block";
+            return false;
+        }
+        if (!regular.test(element.value)) {
+            message.textContent = "Valor incorrecto";
+            element.style.boxShadow = "0 0 5px red"; // Agregamos sombra roja
+            message.style.display = "block";
+            return false;
+        }
+        message.textContent = "";
+        message.style.display = "none";
+        element.style.boxShadow = "none"; // Quitamos la sombra
+        return true;
+         
+    }
+
+    /* Validación de los campos en tiempo real */
+const validacionEnTiempoReal = (selector, regular, errorMessageId) => {
+    let inputElement = document.querySelector(selector + " input");
+    inputElement.addEventListener('input', () => {
+        validar(selector, regular, errorMessageId);
+    });
+}
+
+/* Agregar eventos de validación en tiempo real a los campos */
+validacionEnTiempoReal("#nom", /^[a-zA-ZÀ-ÿ']{3,}(?: [a-zA-ZÀ-ÿ']{2,}){0,2}(?: [a-zA-ZÀ-ÿ']{3,}){1,2}$/, "errorNombre");
+validacionEnTiempoReal("#apellidos", /^[a-zA-ZÀ-ÿ']{3,}(?: [a-zA-ZÀ-ÿ']{2,}){0,2}(?: [a-zA-ZÀ-ÿ']{3,}){1,2}$/, "errorApellidos");
+validacionEnTiempoReal("#mail", /[a-z]{3,}(\d*|(([._])[a-z]+)?(\3[a-z]+)?)@[a-z]{3,}[.][a-z]{2,4}/, "errorMail");
+validacionEnTiempoReal("#fechaNacimiento", /^\d{4}-\d{2}-\d{2}$/, "mensajeErrorFormato");
+
+// Agregar validación en tiempo real para el campo de la foto
+const validacionFotoEnTiempoReal = () => {
+    let fileInput = document.getElementById('imagen');
+    let errorMessage = document.getElementById('errorFoto');
+    
+    fileInput.addEventListener('input', () => {
+        if (fileInput.files.length === 0) {
+            errorMessage.textContent = "Debes subir una foto.";
+            errorMessage.style.display = "block";
+        } else {
+            errorMessage.textContent = "";
+            errorMessage.style.display = "none";
+        }
+    });
+}
+
+
+
+
+// Llamar a la función para agregar validación en tiempo real al campo de la foto
+validacionFotoEnTiempoReal();
+
+
+document.addEventListener("DOMContentLoaded", function() {
+            // Función para validar las políticas de privacidad en tiempo real
+            const validarPoliticasEnTiempoReal = () => {
+                const politicasCheckbox = document.querySelector('input[name="politicasPrivacidad"]');
+                const errorMessage = document.getElementById('errorPoliticas');
+
+                // Función para actualizar el mensaje de error cuando cambia el estado del checkbox
+                const updateErrorMessage = () => {
+                    errorMessage.textContent = politicasCheckbox.checked ? "" : "Debes aceptar las políticas de Ramon";
+                    errorMessage.style.display = politicasCheckbox.checked ? 'none' : 'block';
+                };
+
+                // Llamar a la función de actualización cuando el checkbox cambia de estado
+                politicasCheckbox.addEventListener('change', updateErrorMessage);
+
+                // Ocultar el mensaje de error al cargar la página
+                errorMessage.style.display = 'none';
+            };
+
+            // Función para validar si se ha seleccionado la opción de residente en tiempo real
+            const validarResidenciaEnTiempoReal = () => {
+                const residenteRadioButtons = document.querySelectorAll('input[name="opció"]');
+                const errorMessage = document.getElementById('errorRadio');
+
+                // Función para actualizar el mensaje de error cuando cambia el estado de los radio buttons
+                const updateErrorMessage = () => {
+                    let seleccionado = false;
+                    residenteRadioButtons.forEach(radioButton => {
+                        if (radioButton.checked) {
+                            seleccionado = true;
+                        }
+                    });
+                    errorMessage.textContent = seleccionado ? "" : "Debes seleccionar una opción";
+                    errorMessage.style.display = seleccionado ? 'none' : 'block';
+                };
+
+                // Llamar a la función de actualización cuando cambie el estado de los radio buttons
+                residenteRadioButtons.forEach(radioButton => {
+                    radioButton.addEventListener('change', updateErrorMessage);
+                });
+
+                // Ocultar el mensaje de error al cargar la página
+                errorMessage.style.display = 'none';
+            };
+
+            // Llamar a las funciones para validar políticas de privacidad y residencia en tiempo real
+            validarPoliticasEnTiempoReal();
+            validarResidenciaEnTiempoReal();
+
+            
+        });
+
+         // Función para validar si se ha seleccionado una imagen
+    const validarImagen = () => {
+        let fileInput = document.getElementById('imagen');
+        let errorMessage = document.getElementById('errorFoto');
+
+        if (fileInput.files.length === 0) {
+            errorMessage.textContent = "Debes subir una foto.";
+            errorMessage.style.display = "block";
+            return false;
+        } else {
+            errorMessage.textContent = "";
+            errorMessage.style.display = "none";
+            return true;
+        }
+    }
+
+
+
+    const validarRadio = () => {
+        let elements = document.querySelectorAll("#opció input");
+        let message = document.getElementById("errorRadio");
+        for (let e = 0; e < elements.length; e++) {
+            if (elements[e].checked) {
+                message.style.display = "none";
+                return true;
+            }
+        }
+        message.textContent = "Has de seleccionar una opció";
+        message.style.display = "block";
+        return false;
+    }
+
+    const validarForm = () => {
+    let validNom = validar("#nom", /^[a-zA-ZÀ-ÿ']{3,}(?: [a-zA-ZÀ-ÿ']{2,}){0,2}(?: [a-zA-ZÀ-ÿ']{3,}){1,2}$/, "errorNombre");
+    let validApellidos = validar("#apellidos", /^[a-zA-ZÀ-ÿ']{3,}(?: [a-zA-ZÀ-ÿ']{2,}){0,2}(?: [a-zA-ZÀ-ÿ']{3,}){1,2}$/, "errorApellidos");
+    let validMail = validar("#mail", /[a-z]{3,}(\d*|(([._])[a-z]+)?(\3[a-z]+)?)@[a-z]{3,}[.][a-z]{2,4}/, "errorMail");
+    let validFechaNacimiento = validar("#fechaNacimiento", /^\d{4}-\d{2}-\d{2}$/, "mensajeErrorFormato");
+    let validRadio = validarRadio();
+    let validPoliticas = document.querySelector('input[name="politicasPrivacidad"]').checked;
+    let errorMessagePoliticas = document.getElementById('errorPoliticas'); // Agregado
+    let validImagen = validarImagen();
+    let validSexo = validarSexo(); // Validación del campo de sexo
+
+
+// Retornar true si todos los campos son válidos, incluyendo la imagen
+
+    // Actualizar el mensaje de error para las políticas de privacidad
+    if (!validPoliticas) {
+        errorMessagePoliticas.textContent = "Debes aceptar las políticas de Ramon";
+        errorMessagePoliticas.style.display = 'block';
+    } else {
+        errorMessagePoliticas.textContent = ""; // Limpiar el mensaje de error si es válido
+        errorMessagePoliticas.style.display = 'none';
+    }
+
+    return validNom && validApellidos && validMail && validFechaNacimiento && validRadio && validPoliticas && validImagen && validSexo;
+}
+
+    
+    const displayColor = () => {
+    const red = document.getElementById('red').value;
+    const green = document.getElementById('green').value;
+    const blue = document.getElementById('blue').value;
+
+    const colorPreview = document.getElementById('color-preview');
+    colorPreview.style.borderColor = `rgb(${red}, ${green}, ${blue})`;
+}
+
+// Event listeners for the color range inputs
+document.getElementById('red').addEventListener('input', displayColor);
+document.getElementById('green').addEventListener('input', displayColor);
+document.getElementById('blue').addEventListener('input', displayColor);
+
+// validar sexe 
+
+// Función para validar si se ha seleccionado una opción para el campo de sexo
+const validarSexo = () => {
+    const sexoRadios = document.querySelectorAll('input[name="sexo"]');
+    const errorMessage = document.getElementById('errorSexo');
+
+    let seleccionado = false;
+    sexoRadios.forEach(radioButton => {
+        if (radioButton.checked) {
+            seleccionado = true;
+        }
+    });
+
+    if (!seleccionado) {
+        errorMessage.textContent = "Debes seleccionar una opción para el sexo.";
+        errorMessage.style.display = 'block';
+        return false;
+    } else {
+        errorMessage.textContent = ""; // Limpiar el mensaje de error si es válido
+        errorMessage.style.display = 'none';
+        return true;
+    }
+}
+
+// Agregar validación en tiempo real para el campo de sexo
+const validarSexoEnTiempoReal = () => {
+    const sexoRadios = document.querySelectorAll('input[name="sexo"]');
+    sexoRadios.forEach(radioButton => {
+        radioButton.addEventListener('change', validarSexo);
+    });
+}
+
+// Llamar a la función de validación en tiempo real para el campo de sexo
+validarSexoEnTiempoReal();
+
+    
+</script>
+</body>
+</html>
